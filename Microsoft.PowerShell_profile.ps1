@@ -14,6 +14,8 @@ New-Alias Get-Computer $env:HOME/.local/share/powershell/Scripts/uname.ps1
 New-Alias Get-DiskUsage $env:HOME/.local/share/powershell/Scripts/df.ps1
 New-Alias Edit-Item vim # lol
 New-Alias Connect-Shell ssh
+New-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
+# (although I prefer exa on FiSH shell)
 
 # These aren't implemented by default in Powershell
 function ~ {
