@@ -10,6 +10,7 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
+#New-Alias Send-PSNotification notify-send # installed module, here to just keep track of
 New-Alias Get-Computer $env:HOME/.local/share/powershell/Scripts/uname.ps1
 New-Alias Get-DiskUsage $env:HOME/.local/share/powershell/Scripts/df.ps1
 New-Alias Edit-Item vim # lol
