@@ -62,5 +62,5 @@ function Get-DefaultKernel {
 
 # Takes args and calls a new shell with sudo
 function Invoke-Sudo {
-	& /usr/bin/env sudo pwsh -nologo -command "& $args"
+	& /usr/bin/env sudo pwsh-preview -nologo -command "& $args"
 }
