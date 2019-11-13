@@ -14,3 +14,16 @@ Implements `uname -a` as a nice looking table
 
 - df.ps1: Get-DiskUsage  
 Implements `df -h` as a nice looking table
+
+
+### To-Do
+
+Things I want to try doing in Powershell.
+
+- Wrapper for dnf
+- Add command-line arguments for existing scripts (like `-?`)
+- Wrapper for systemctl ( systemd :) )
+- Wrapper for rustup
+- Wrapper for GSettings (GNOME)
+- **Adventurous** Re-engineer GNU Make :)
+- Wrapper for xdg-open
