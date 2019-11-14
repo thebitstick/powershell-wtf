@@ -1,7 +1,56 @@
+function ~ {
+<#
+	.SYNOPSIS
+	    Set's the location to $env:HOME, the default HOME directory
+#>
+
+  #Requires -Version 6.0
+
+  Set-Location $env:HOME
+}
+
+function .. {
+<#
+	.SYNOPSIS
+	    Set's the location to a directory up a level
+#>
+
+  #Requires -Version 6.0
+
+  Set-Location ..
+}
+
+function Edit-Profile {
+<#
+	.SYNOPSIS
+	    Opens an editor for editing the default $PROFILE.
+	.DESCRIPTION
+	  Uses Edit-Item to edit the $PROFILE variable.
+#>
+
+  #Requires -Version 6.0
+
+  Edit-Item $PROFILE
+}
+
+function Update-Computer {
+<#
+	.SYNOPSIS
+	    Executes update function for Flatpak and Fedora DNF.
+	.DESCRIPTION
+	    Calls the update function for Flatpak and then executes the update function forFedora DNF as root.
+#>
+
+  #Requires -Version 6.0
+
+  flatpak update
+  sudo dnf upgrade --refresh
+}
+
 function Get-DiskUsage {
 <#
 	.SYNOPSIS
-	    Formats value of Csv-formated df output as a table
+	    Formats value of Csv-formated df output as a table.
 	.DESCRIPTION
 	  Takes the value of specific fields from df, formats spaces as commas, and converts this data to proper Csv-Formated data. This data is then imported into a table constructed to take in this data. This table is then display.
 	.PARAMETER PATH
@@ -62,11 +111,11 @@ function Get-DiskUsage {
 function Get-DefaultKernel {
 <#
 	.SYNOPSIS
-	    Formats the output of querying the default kernel under GRUB as a table
+	    Formats the output of querying the default kernel under GRUB as a table.
 	.DESCRIPTION
-	    Takes the output of grubby after querying the default kernel under GRUB, then outputs
+	    Takes the output of grubby after querying the default kernel under GRUB, then outputs.
 	.OUTPUTS
-	    Value of default kernel under GRUB as an object containing it's filename and location
+	    Value of default kernel under GRUB as an object containing it's filename and location.
 #>
 
   #Requires -Version 6.0
@@ -89,13 +138,13 @@ function Get-DefaultKernel {
 function Invoke-Sudo {
 <#
 	.SYNOPSIS
-	    Wrapper for Superuser Do (sudo)
+	    Wrapper for Superuser Do (sudo).
 	.DESCRIPTION
-	    Takes mandatory parameters provided and Invokes the sudo command
+	    Takes mandatory parameters provided and Invokes the sudo command.
 	.INPUTS
-	    Mandatory parameters as commands
+	    Mandatory parameters as commands.
 	.EXAMPLE
-	    Invoke-Sudo dnf install pwsh-preview
+	    Invoke-Sudo dnf install pwsh-preview.
 	.EXAMPLE
 	    Invoke-Sudo rm -rf /c/system32
 #>
@@ -114,13 +163,13 @@ function Invoke-Sudo {
 function Edit-PrivilegedItem {
 <#
 	.SYNOPSIS
-	    Allows Editing of Administrator Configuration Files
+	    Allows Editing of Administrator Configuration Files.
 	.DESCRIPTION
-	    Calls Invoke-Sudo with the editor vim to edit a given file as the superuser
+	    Calls Invoke-Sudo with the editor vim to edit a given file as the superuser.
 	.PARAMETER Item
-	    Item to edit
+	    Item to edit.
 	.INPUTS
-	    Items to Edit
+	    Items to Edit.
 	.EXAMPLE
 	    Edit-PrivilegedItem /etc/passwd
 #>
@@ -139,11 +188,11 @@ function Edit-PrivilegedItem {
 function Get-ComputerInfo {
 <#
 	.SYNOPSIS
-	    Formats the values of uname outputs as a table
+	    Formats the values of uname outputs as a table.
 	.DESCRIPTION
-	    Stores multiple values of uname outputs in an object and displays the object as a table
+	    Stores multiple values of uname outputs in an object and displays the object as a table.
 	.OUTPUTS
-	    Table-formatted uname -a
+	    Table-formatted uname -a.
 #>
 
   #Requires -Version 6.0

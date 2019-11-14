@@ -1,30 +1,37 @@
 # powershell-wtf
 
-Dotfiles for Powershell use on Fedora Linux.
+Profile and Module for Powershell use on (Fedora) Linux.
+
+Why not. *shrug*.
 
 
-Really not sure why I'm using Powershell on Linux, and I'm not sure why YOU would want to, but if you're interested in object-oriented scripting, feel free to check out these scripts.
+### Modules
+
+I use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNotifySend) and [DTW-DanWard/Powershell-Beautify](https://github.com/DTW-DanWard/PowerShell-Beautifier).
 
 
-These mostly implement missing functionality on Linux for Powershell using \*nix commands.
+### Functions in WTF.psm1
 
-
-### Scripts
-
-- uname.ps1: `Get-ComputerInfo`  
+- `Get-ComputerInfo`  
 Implements `uname -a` as a nice looking table
 
-- df.ps1: `Get-DiskUsage`  
+- `Get-DiskUsage`  
 Implements `df -h` as a nice looking table
 
-- grubby.ps1: `Get-DefaultKernel`  
+- `Get-DefaultKernel`  
 Implements `grubby --default-kernel` as a nice looking table
 
-- sudo.ps1: `Invoke-Sudo`  
+- `Invoke-Sudo`  
 `sudo pwsh-preview "% $args"`
 
-- sudovi.ps1: `Edit-PrivilegedItem`  
+- `Edit-PrivilegedItem`  
 `Invoke-Sudo vim [file]`
+
+- `Edit-Profile`  
+`Edit-Item $PROFILE`
+
+- `Update-Computer`  
+`flatpak update; sudo dnf upgrade --refresh`
 
 
 ### Aliases
@@ -33,8 +40,6 @@ Implements `grubby --default-kernel` as a nice looking table
 - Connect-Shell: `ssh`  
 - Open-Item: `xdg-open`  
 - ls: dir: `Get-ChildItem`  
-- Edit-Profile: `Edit-Item $PROFILE`  
-- Update-Computer: `flatpak update; sudo dnf upgrade --refresh`  
 
 
 ### To-Do
