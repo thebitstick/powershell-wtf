@@ -9,7 +9,7 @@ function ~ {
   Set-Location $env:HOME
 }
 
-function..{
+function .. {
 <#
 	.SYNOPSIS
 	    Set's the location to a directory up a level
