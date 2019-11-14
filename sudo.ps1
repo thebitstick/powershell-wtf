@@ -14,9 +14,9 @@
 #Requires -Version 6.0
 
 [CmdletBinding()]
-param (
-	[Parameter(ValueFromRemainingArguments = $true, Mandatory = $true)]
-	[string[]]$args = $args
+param(
+  [Parameter(ValueFromRemainingArguments = $true,Mandatory = $true)]
+  [string[]]$args = $args
 )
 
-/usr/bin/env sudo pwsh-preview -nologo -command "& $args"
+/usr/bin/env sudo pwsh-preview -nologo -Command "& $args"
