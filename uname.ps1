@@ -10,18 +10,18 @@
 #Requires -Version 6.0
 
 [CmdletBinding()]
-class ComputerInfo {
-	[string]$Kernel
-	[string]$Hostname
-	[string]$KernelRelease
-	[string]$KernelVersion
-	[string]$Hardware
-	[string]$Processor
-	[string]$Platform
-	[string]$OperatingSystem
+class ComputerInfo{
+  [string]$Kernel
+  [string]$Hostname
+  [string]$KernelRelease
+  [string]$KernelVersion
+  [string]$Hardware
+  [string]$Processor
+  [string]$Platform
+  [string]$OperatingSystem
 }
 
-$Comp = [ComputerInfo]::New()
+$Comp = [ComputerInfo]::new()
 
 $Comp.Kernel = (uname --kernel-name)
 $Comp.Hostname = (uname --nodename)
