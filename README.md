@@ -30,6 +30,9 @@ Implements `grubby --default-kernel` as a nice looking table
 - `Edit-Profile`  
 `Edit-Item $PROFILE`
 
+- `Edit-WTF`  
+`Edit-Item $WTF_MODULE`
+
 - `Update-Computer`  
 `flatpak update; sudo dnf upgrade --refresh`
 
