@@ -1,5 +1,15 @@
-#!/usr/bin/env pwsh
+<#
+	.SYNOPSIS
+	    Formats the values of uname outputs as a table
+	.DESCRIPTION
+	    Stores multiple values of uname outputs in an object and displays the object as a table
+	.OUTPUTS
+	    Table-formatted uname -a
+#>
 
+#Requires -Version 6.0
+
+[CmdletBinding()]
 class ComputerInfo {
 	[string]$Kernel
 	[string]$Hostname
@@ -11,15 +21,15 @@ class ComputerInfo {
 	[string]$OperatingSystem
 }
 
-$comp = [ComputerInfo]::New()
+$Comp = [ComputerInfo]::New()
 
-$comp.Kernel = (uname --kernel-name)
-$comp.Hostname = (uname --nodename)
-$comp.KernelRelease = (uname --kernel-release)
-$comp.KernelVersion = (uname --kernel-version)
-$comp.Hardware = (uname --machine)
-$comp.Processor = (uname --processor)
-$comp.Platform = (uname --hardware-platform)
-$comp.OperatingSystem = (uname --operating-system)
+$Comp.Kernel = (uname --kernel-name)
+$Comp.Hostname = (uname --nodename)
+$Comp.KernelRelease = (uname --kernel-release)
+$Comp.KernelVersion = (uname --kernel-version)
+$Comp.Hardware = (uname --machine)
+$Comp.Processor = (uname --processor)
+$Comp.Platform = (uname --hardware-platform)
+$Comp.OperatingSystem = (uname --operating-system)
 
-$comp 
+$Comp

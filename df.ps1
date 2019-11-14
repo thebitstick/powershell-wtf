@@ -1,41 +1,58 @@
-#!/usr/bin/env pwsh
+<#
+	.SYNOPSIS
+	    Formats value of Csv-formated df output as a table
+	.DESCRIPTION
+	  Takes the value of specific fields from df, formats spaces as commas, and converts this data to proper Csv-Formated data. This data is then imported into a table constructed to take in this data. This table is then display.
+	.PARAMETER PATH
+	   Providing a path will locate where a specific folder is mounted from.
+	.OUTPUTS
+	   Formatted Table with data from df command.
+	.EXAMPLE
+	    Get-DiskUsage -Path /home 
+#>
 
-param ([Parameter(Mandatory=$false)][string]$path)
+#Requires -Version 6.0
 
-$disc = $(sudo df $path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv);
+[CmdletBinding()]
+param (
+	[Parameter(Mandatory = $false)]
+	[String]$Path
+)
 
-$table = New-Object System.Data.DataTable;
+$Disc = $(df $Path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv)
 
-$filesystem = New-Object System.Data.DataColumn Filesystem;
-$type = New-Object System.Data.DataColumn Type;
-$size = New-Object System.Data.DataColumn Size;
-$used = New-Object System.Data.DataColumn Used;
-$avail = New-Object System.Data.DataColumn Available;
-$pcent = New-Object System.Data.DataColumn Percentage;
-$file = New-Object System.Data.DataColumn File;
-$target = New-Object System.Data.DataColumn Target;
+$Table = New-Object -TypeName System.Data.DataTable
 
-$table.Columns.Add($filesystem);
-$table.Columns.Add($type);
-$table.Columns.Add($size);
-$table.Columns.Add($used);
-$table.Columns.Add($avail);
-$table.Columns.Add($pcent);
-$table.Columns.Add($file);
-$table.Columns.Add($target);
+$Filesystem = New-Object -TypeName System.Data.DataColumn Filesystem
+$Type = New-Object -TypeName System.Data.DataColumn Type
+$Size = New-Object -TypeName System.Data.DataColumn Size
+$Used = New-Object -TypeName System.Data.DataColumn Used
+$Avail = New-Object -TypeName System.Data.DataColumn Available
+$PCent = New-Object -TypeName System.Data.DataColumn Percentage
+$File = New-Object -TypeName System.Data.DataColumn File
+$Target = New-Object -TypeName System.Data.DataColumn Target
 
-foreach ($disk in $disc) {
-	$row = $table.NewRow();
-	$row.Filesystem = $disk.Filesystem;
-	$row.Type = $disk.Type;
-	$row.Size = $disk.Size;
-	$row.Used = $disk.Used;
-	$row.Available = $disk.Avail;
-	$row.Percentage = $disk."Use%";
-	$row.File = $disk.File;
-	$row.Target = $disk.Mounted;
+$Table.Columns.Add($Filesystem)
+$Table.Columns.Add($Type)
+$Table.Columns.Add($Size)
+$Table.Columns.Add($Used)
+$Table.Columns.Add($Avail)
+$Table.Columns.Add($PCent)
+$Table.Columns.Add($File)
+$Table.Columns.Add($Target)
 
-	$table.Rows.Add($row);
+foreach ($Disk in $Disc) {
+	$row = $Table.NewRow()
+	$row.Filesystem = $Disk.Filesystem
+	$row.Type = $Disk.Type
+	$row.Size = $Disk.Size
+	$row.Used = $Disk.Used
+	$row.Available = $Disk.Avail
+	$row.Percentage = $Disk."Use%"
+	$row.File = $Disk.File
+	$row.Target = $Disk.Mounted
+
+	$Table.Rows.Add($row)
 }
 
-$table | Format-Table -Autosize;
+$Table | Format-Table -Autosize

@@ -42,5 +42,4 @@ Implements `grubby --default-kernel` as a nice looking table
 Things I want to try doing in Powershell.
 
 - Wrapper for dnf
-- Add command-line arguments for existing scripts (like `-?`)
 - Wrapper for systemctl  (**systemd :)** )
