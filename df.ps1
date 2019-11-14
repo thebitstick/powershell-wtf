@@ -1,10 +1,8 @@
 #!/usr/bin/env pwsh
 
-if ($args[0] -eq "-Path") {
-	$disc = $(sudo df $args[1] --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv);
-} else {
-	$disc = $(sudo df --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv);
-}
+param ([Parameter(Mandatory=$false)][string]$path)
+
+$disc = $(sudo df $path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv);
 
 $table = New-Object System.Data.DataTable;
 
