@@ -9,14 +9,28 @@ Really not sure why I'm using Powershell on Linux, and I'm not sure why YOU woul
 These mostly implement missing functionality on Linux for Powershell using \*nix commands.
 
 
-- uname.ps1: Get-ComputerInfo  
+### Scripts
+
+- uname.ps1: `Get-ComputerInfo`  
 Implements `uname -a` as a nice looking table
 
-- df.ps1: Get-DiskUsage  
+- df.ps1: `Get-DiskUsage`  
 Implements `df -h` as a nice looking table
 
-- grubby.ps1: Get-DefaultKernel  
+- grubby.ps1: `Get-DefaultKernel`  
 Implements `grubby --default-kernel` as a nice looking table
+
+
+### Aliases
+
+- Edit-Item: `vim`  
+- Connect-Shell: `ssh`  
+- Open-Item: `xdg-open`  
+- ls: dir: `Get-ChildItem`  
+- Edit-Profile: `Edit-Item $PROFILE`  
+- Update-Computer: `flatpak update; sudo dnf upgrade --refresh`  
+- Edit-PrivilegedItem: `Invoke-Sudo vim [file]`  
+- Invoke-Sudo: `sudo pwsh-preview "% $args"`
 
 
 ### To-Do
@@ -26,4 +40,3 @@ Things I want to try doing in Powershell.
 - Wrapper for dnf
 - Add command-line arguments for existing scripts (like `-?`)
 - Wrapper for systemctl  (**systemd :)** )
-- Wrapper for xdg-open
