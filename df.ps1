@@ -14,9 +14,9 @@
 #Requires -Version 6.0
 
 [CmdletBinding()]
-param (
-	[Parameter(Mandatory = $false)]
-	[String]$Path
+param(
+  [Parameter(Mandatory = $false)]
+  [string]$Path
 )
 
 $Disc = $(df $Path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv)
@@ -42,17 +42,17 @@ $Table.Columns.Add($File)
 $Table.Columns.Add($Target)
 
 foreach ($Disk in $Disc) {
-	$row = $Table.NewRow()
-	$row.Filesystem = $Disk.Filesystem
-	$row.Type = $Disk.Type
-	$row.Size = $Disk.Size
-	$row.Used = $Disk.Used
-	$row.Available = $Disk.Avail
-	$row.Percentage = $Disk."Use%"
-	$row.File = $Disk.File
-	$row.Target = $Disk.Mounted
+  $row = $Table.NewRow()
+  $row.Filesystem = $Disk.Filesystem
+  $row.Type = $Disk.Type
+  $row.Size = $Disk.Size
+  $row.Used = $Disk.Used
+  $row.Available = $Disk.Avail
+  $row.Percentage = $Disk. "Use%"
+  $row.File = $Disk.File
+  $row.Target = $Disk.Mounted
 
-	$Table.Rows.Add($row)
+  $Table.Rows.Add($row)
 }
 
-$Table | Format-Table -Autosize
+$Table | Format-Table -AutoSize
