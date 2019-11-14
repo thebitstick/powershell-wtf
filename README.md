@@ -20,6 +20,12 @@ Implements `df -h` as a nice looking table
 - grubby.ps1: `Get-DefaultKernel`  
 Implements `grubby --default-kernel` as a nice looking table
 
+- sudo.ps1: `Invoke-Sudo`  
+`sudo pwsh-preview "% $args"`
+
+- sudovi.ps1: `Edit-PrivilegedItem`  
+`Invoke-Sudo vim [file]`
+
 
 ### Aliases
 
@@ -29,8 +35,6 @@ Implements `grubby --default-kernel` as a nice looking table
 - ls: dir: `Get-ChildItem`  
 - Edit-Profile: `Edit-Item $PROFILE`  
 - Update-Computer: `flatpak update; sudo dnf upgrade --refresh`  
-- Edit-PrivilegedItem: `Invoke-Sudo vim [file]`  
-- Invoke-Sudo: `sudo pwsh-preview "% $args"`
 
 
 ### To-Do
