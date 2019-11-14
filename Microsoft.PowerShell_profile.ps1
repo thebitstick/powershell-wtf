@@ -13,6 +13,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
 #New-Alias Send-PSNotification notify-send # installed module, here to just keep track of
+#Edit-DTWBeautifyScript, cool module that reformats code
 New-Alias Get-ComputerInfo $SCRIPT_PATH/uname.ps1
 New-Alias Get-DiskUsage $SCRIPT_PATH/df.ps1
 New-Alias Get-DefaultKernel $SCRIPT_PATH/grubby.ps1
