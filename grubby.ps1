@@ -10,15 +10,15 @@
 #Requires -Version 6.0
 
 [CmdletBinding()]
-class Kernel {
-	[string]$Name
-        [string]$Location
+class Kernel{
+  [string]$Name
+  [string]$Location
 }
 
-$Kern = [Kernel]::New()
+$Kern = [Kernel]::new()
 $Output = (Invoke-Sudo grubby --default-kernel)
 
 $Kern.Name = Split-Path -Path $Output -Leaf
 $Kern.Location = $Output
 
-$Kern | Format-Table -Autosize
+$Kern | Format-Table -AutoSize
