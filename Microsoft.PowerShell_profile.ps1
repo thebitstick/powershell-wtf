@@ -16,6 +16,7 @@ New-Alias Get-DiskUsage $env:HOME/Git/powershell-wtf/df.ps1
 New-Alias Get-DefaultKernel $env:HOME/Git/powershell-wtf/grubby.ps1
 New-Alias Edit-Item vim # lol
 New-Alias Connect-Shell ssh
+New-Alias Open-Item xdg-open
 New-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
 # (although I prefer exa on FiSH shell)
 
