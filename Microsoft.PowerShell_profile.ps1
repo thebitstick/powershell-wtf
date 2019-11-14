@@ -12,8 +12,8 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
-New-Alias Edit-Item vim # lol
-New-Alias Connect-Shell ssh
-New-Alias Open-Item xdg-open
-New-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
+Set-Alias Edit-Item vim # lol
+Set-Alias Connect-Shell ssh
+Set-Alias Open-Item xdg-open
+Set-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
 # (although I prefer exa on FiSH shell)
