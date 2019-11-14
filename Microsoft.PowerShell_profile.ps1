@@ -11,8 +11,9 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
 #New-Alias Send-PSNotification notify-send # installed module, here to just keep track of
-New-Alias Get-Computer $env:HOME/.local/share/powershell/Scripts/uname.ps1
-New-Alias Get-DiskUsage $env:HOME/.local/share/powershell/Scripts/df.ps1
+New-Alias Get-ComputerInfo $env:HOME/Git/powershell-wtf/uname.ps1
+New-Alias Get-DiskUsage $env:HOME/Git/powershell-wtf/df.ps1
+New-Alias Get-DefaultKernel $env:HOME/Git/powershell-wtf/grubby.ps1
 New-Alias Edit-Item vim # lol
 New-Alias Connect-Shell ssh
 New-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
@@ -36,28 +37,13 @@ function Update-Computer {
 	sudo dnf upgrade --refresh
 }
 
+# sudo vim
 function Edit-PrivilegedItem {
 	param(
 		[Parameter(Mandatory=$true, Position=1)]
 		[string]$Item
 	)
 	Invoke-Sudo vim $Item
-}
-
-# Useful when using a Surface device and you need to ensure usage of the Surface Linux kernel
-function Get-DefaultKernel {
-	class Kernel {
-		[string]$Name
-		[string]$Location
-	}
-
-	$kern = [Kernel]::New()
-	$out = (Elevate-Privilege grubby --default-kernel)
-
-	$kern.Name = Split-Path $out -leaf
-	$kern.Location = $out
-
-	$kern
 }
 
 # Takes args and calls a new shell with sudo
