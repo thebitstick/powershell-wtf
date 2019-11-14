@@ -1,8 +1,8 @@
 $env:PATH += ":$env:HOME/.local/bin:$env:HOME/.cargo/bin" # Enables Python/Rust user-installed binaries (like sharexin or toot)
-$SCRIPT_PATH = "$env:HOME/Git/powershell-wtf"
+$WTF_MODULE = "$env:HOME/Git/powershell-wtf/WTF.psm1"
 
 # Oh-My-Posh theming
-Import-Module $SCRIPT_PATH/WTF.psm1
+Import-Module $WTF_MODULE
 Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme Impact

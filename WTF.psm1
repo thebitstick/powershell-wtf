@@ -9,7 +9,7 @@ function ~ {
   Set-Location $env:HOME
 }
 
-function .. {
+function..{
 <#
 	.SYNOPSIS
 	    Set's the location to a directory up a level
@@ -31,6 +31,19 @@ function Edit-Profile {
   #Requires -Version 6.0
 
   Edit-Item $PROFILE
+}
+
+function Edit-WTF {
+<#
+	.SYNOPSIS
+	    Opens an editor for editing the WTF Module.
+	.DESCRIPTION
+	    Uses Edit-Item to edit the $WTF_MODULE variable
+#>
+
+  #Requires -Version 6.0
+
+  Edit-Item $WTF_MODULE
 }
 
 function Update-Computer {
