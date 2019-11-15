@@ -11,6 +11,7 @@ Set-Theme Impact
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 Set-Alias Edit-Item vim # lol
 Set-Alias Connect-Shell ssh
