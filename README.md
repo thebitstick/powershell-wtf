@@ -43,6 +43,9 @@ Implements `grubby --default-kernel` as a nice looking table
 - `Get-Service`  
 `sudo systemctl status $name`
 
+- `Write-EveryOtherOdd`  
+Calculates "every other odd" in a range of numbers
+
 
 ### Aliases
 
