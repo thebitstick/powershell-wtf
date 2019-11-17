@@ -281,14 +281,15 @@ function Get-ComputerInfo {
 function Write-EveryOtherOdd {
 <#
 	.SYNOPSIS
-	    
+	    Takes in a start and end and calculates "every other odd".
 	.DESCRIPTION
-	    
+	    Takes the input of a Start number and an End number, and determines every single "Other Odd" in that range. Then it outputs the total number of "other odds" in that range.
 	.INPUTS
-	    
+	    A start and and end number.
 	.OUTPUTS
-	    
+	    Every other odd number in that range and the total number of "every other" odd numbers.
 	.EXAMPLE
+	    Write-EveryOtherOdd -Start 69 -End 420
 #>
 
   #Requires -Version 6.0
