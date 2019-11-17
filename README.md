@@ -17,7 +17,7 @@ I use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNotifySe
 ### Functions in WTF.psm1
 
 - `Get-ComputerInfo`  
-Implements `uname -a` as a nice looking table
+Implements `uname -a` and `cat /etc/os-release` as a nice looking table
 
 - `Get-DiskUsage`  
 Implements `df -h` as a nice looking table
