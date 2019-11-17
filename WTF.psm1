@@ -278,6 +278,39 @@ function Get-ComputerInfo {
   $Os
 }
 
+function Write-EveryOtherOdd {
+<#
+	.SYNOPSIS
+	    
+	.DESCRIPTION
+	    
+	.INPUTS
+	    
+	.OUTPUTS
+	    
+	.EXAMPLE
+#>
+
+  #Requires -Version 6.0
+
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory = $true)]
+    [int]$Start,
+    [Parameter(Mandatory = $true)]
+    [int]$End
+  )
+
+  $Count = 0
+
+  for ($Start; $Start -le $End; $Start += 4) {
+    Write-Output "Problem: $Start"
+    $Count++
+  }
+
+  Write-Output "Total # of Problems: $Count"
+}
+
 function Get-Service {
 <#
         .SYNOPSIS
@@ -286,6 +319,8 @@ function Get-Service {
             
         .INPUTS
             
+	.OUTPUTS
+	    
         .EXAMPLE
             
 #>
