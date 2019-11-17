@@ -314,15 +314,15 @@ function Write-EveryOtherOdd {
 function Get-Service {
 <#
         .SYNOPSIS
-            
+            Alias for systemctl status.
         .DESCRIPTION
-            
+            Currently is only an alias, but should be feature comparable to Windows equivalent.
         .INPUTS
-            
+            An (optional) service name.
 	.OUTPUTS
-	    
+	    The status of either a single service or every service running.
         .EXAMPLE
-            
+            Get-Service sshd
 #>
 
   #Requires -Version 6.0
