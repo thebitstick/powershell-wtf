@@ -16,5 +16,9 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 Set-Alias Edit-Item vim # lol
 Set-Alias Connect-Shell ssh
 Set-Alias Open-Item xdg-open
+Set-Alias Emulate-Console wineconsole
+Set-Alias Compile-C++ g++
+Set-Alias Compile-Assembly masm
+Set-Alias Compile-Rust rustc
 Set-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
 # (although I prefer exa on FiSH shell)
