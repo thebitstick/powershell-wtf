@@ -207,17 +207,17 @@ function Edit-PrivilegedItem {
 function Get-ComputerInfo {
 <#
 	.SYNOPSIS
-	    Formats the values of uname outputs as a table.
+	    Formats the values of uname outputs and /etc/os-release as a table.
 	.DESCRIPTION
-	    Stores multiple values of uname outputs in an object and displays the object as a table.
+	    Stores multiple values of uname outputs and /etc/os-release in an object and displays the object as a table.
 	.OUTPUTS
-	    Table-formatted uname -a.
+	    Table-formatted uname -a and /etc/os-release.
 #>
 
   #Requires -Version 6.0
 
   [CmdletBinding()]
-  class ComputerInfo{
+  class ComputerInfo {
     [string]$Kernel
     [string]$Hostname
     [string]$KernelRelease
@@ -228,7 +228,27 @@ function Get-ComputerInfo {
     [string]$OperatingSystem
   }
 
+  class OSInfo {
+    [string]$Name
+    [string]$Version
+    [string]$ID
+    [string]$IDLike
+    [string]$VariantID
+    [string]$VersionID
+    [string]$VersionCodename
+    [string]$PlatformID
+    [string]$PrettyName
+    [string]$AnsiColor
+    [string]$Logo
+    [string]$HomeURL
+    [string]$SupportURL
+    [string]$BugReportURL
+  }
+
   $Comp = [ComputerInfo]::new()
+  $Os = [OSInfo]::new()
+
+  $OsRelease = ((Get-Content /etc/os-release) -replace '"',''| ConvertFrom-StringData)
 
   $Comp.Kernel = (uname --kernel-name)
   $Comp.Hostname = (uname --nodename)
@@ -239,7 +259,23 @@ function Get-ComputerInfo {
   $Comp.Platform = (uname --hardware-platform)
   $Comp.OperatingSystem = (uname --operating-system)
 
+  $Os.Name = $OsRelease.Name
+  $Os.Version = $OsRelease.Version
+  $Os.ID = $OsRelease.ID
+  $Os.IDLike = $OsRelease.ID_Like
+  $Os.VariantID = $OsRelease.Variant_ID
+  $Os.VersionID = $OsRelease.Version_ID
+  $Os.VersionCodename = $OsRelease.Version_Codename
+  $Os.PlatformID = $OsRelease.Platform_ID
+  $Os.PrettyName = $OsRelease.Pretty_Name
+  $Os.AnsiColor = $OsRelease.Ansi_Color
+  $Os.Logo = $OsRelease.Logo
+  $Os.HomeURL = $OsRelease.Home_URL
+  $Os.SupportURL = $OsRelease.Support_URL
+  $Os.BugReportURL = $OsRelease.Bug_Report_URL
+
   $Comp
+  $Os
 }
 
 function Get-Service {
