@@ -170,7 +170,13 @@ function Invoke-Sudo {
     [string[]]$args = $args
   )
 
-  /usr/bin/env sudo $env:SHELL -nologo -Command "& $args"
+  $pwsh = "pwsh"
+
+  if ((Get-Command "pwsh-preview" -ErrorAction SilentlyContinue) -ne $null) {
+    $pwsh = "pwsh-preview"
+  }
+
+  /usr/bin/env sudo "$pwsh" -nologo -Command "& $args"
 }
 
 function Edit-PrivilegedItem {
@@ -234,4 +240,27 @@ function Get-ComputerInfo {
   $Comp.OperatingSystem = (uname --operating-system)
 
   $Comp
+}
+
+function Get-Service {
+<#
+        .SYNOPSIS
+            
+        .DESCRIPTION
+            
+        .INPUTS
+            
+        .EXAMPLE
+            
+#>
+
+  #Requires -Version 6.0
+
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory = $false)]
+    [string[]]$Name
+  )
+
+  /usr/bin/env sudo systemctl status $Name
 }

@@ -5,6 +5,10 @@ Profile and Module for Powershell use on (Fedora) Linux.
 Why not. *shrug*.
 
 
+### Theming
+I use oh-my-posh with a modified Honukai theme called Impact. It matches the prompt I had been using on FiSH Shell.
+
+
 ### Modules
 
 I use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNotifySend) and [DTW-DanWard/Powershell-Beautify](https://github.com/DTW-DanWard/PowerShell-Beautifier).
@@ -35,6 +39,9 @@ Implements `grubby --default-kernel` as a nice looking table
 
 - `Update-Computer`  
 `flatpak update; sudo dnf upgrade --refresh`
+
+- `Get-Service`  
+`sudo systemctl status $name`
 
 
 ### Aliases
