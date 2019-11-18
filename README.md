@@ -16,8 +16,14 @@ I use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNotifySe
 
 ### Functions in WTF.psm1
 
-- `Get-ComputerInfo`  
-Implements `uname -a` and `cat /etc/os-release` as a nice looking table
+- `Edit-Profile`  
+`Edit-Item $PROFILE`
+
+- `Edit-WTF`  
+`Edit-Item $WTF_MODULE`
+
+- `Update-Computer`  
+`flatpak update; sudo dnf upgrade --refresh`
 
 - `Get-DiskUsage`  
 Implements `df -h` as a nice looking table
@@ -31,20 +37,23 @@ Implements `grubby --default-kernel` as a nice looking table
 - `Edit-PrivilegedItem`  
 `Invoke-Sudo vim [file]`
 
-- `Edit-Profile`  
-`Edit-Item $PROFILE`
+- `Get-ComputerInfo`  
+Implements `uname -a` and `cat /etc/os-release` as a nice looking table
 
-- `Edit-WTF`  
-`Edit-Item $WTF_MODULE`
-
-- `Update-Computer`  
-`flatpak update; sudo dnf upgrade --refresh`
+- `Write-EveryOtherOdd`  
+Calculates "every other odd" in a range of numbers
 
 - `Get-Service`  
 `sudo systemctl status $name`
 
-- `Write-EveryOtherOdd`  
-Calculates "every other odd" in a range of numbers
+- `Start-Service`  
+`sudo systemctl start $name`
+
+- `Stop-Service`  
+`sudo systemctl stop $name`
+
+- `Restart-Service`  
+`sudo systemctl restart $name`
 
 
 ### Aliases
