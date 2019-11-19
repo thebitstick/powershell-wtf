@@ -11,7 +11,7 @@ I use oh-my-posh with a modified Honukai theme called Impact. It matches the pro
 
 ### Modules
 
-I use my own separate modules for systemctl/systemd manipulation. Found here: [thebitstick/powershell-systemctl](https://github.com/thebitstick/powershell-systemctl)  
+I use my own separate modules for systemctl/systemd manipulation. Found here: [thebitstick/powershell-systemctl](https://github.com/thebitstick/powershell-systemctl).  
 
 I also use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNotifySend), [DTW-DanWard/Powershell-Beautify](https://github.com/DTW-DanWard/PowerShell-Beautifier) and [cloudbase/powershell-yaml](https://github.com/cloudbase/powershell-yaml).
 
