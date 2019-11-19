@@ -43,18 +43,6 @@ Implements `uname -a` and `cat /etc/os-release` and `lscpu` as a nice looking li
 - `Write-EveryOtherOdd`  
 Calculates "every other odd" in a range of numbers
 
-- `Get-Service`  
-`sudo systemctl status $name`
-
-- `Start-Service`  
-`sudo systemctl start $name`
-
-- `Stop-Service`  
-`sudo systemctl stop $name`
-
-- `Restart-Service`  
-`sudo systemctl restart $name`
-
 
 ### Aliases
 
