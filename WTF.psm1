@@ -247,6 +247,9 @@ function Get-ComputerInfo {
 
   $Comp = [ComputerInfo]::new()
   $Os = [OSInfo]::new()
+  $Cpu = (lscpu | sed -n '/./s/ *\(\( *[^:[:blank:]]\)*\)[^:]*\(=*\)/"\1"\3/gp')
+  $Cpu = (($Cpu | grep -v Flags | grep -v Vulnerability) -replace ':','=: ')
+  $Cpu = $Cpu | ConvertFrom-StringData | Format-Table -AutoSize -HideTableHeaders
 
   $OsRelease = ((Get-Content /etc/os-release) -replace '"','' | ConvertFrom-StringData)
 
@@ -274,8 +277,9 @@ function Get-ComputerInfo {
   $Os.SupportURL = $OsRelease.Support_URL
   $Os.BugReportURL = $OsRelease.Bug_Report_URL
 
-  $Comp
+  $Comp 
   $Os
+  $Cpu 
 }
 
 function Write-EveryOtherOdd {
