@@ -38,7 +38,7 @@ Implements `grubby --default-kernel` as a nice looking table
 `Invoke-Sudo vim [file]`
 
 - `Get-ComputerInfo`  
-Implements `uname -a` and `cat /etc/os-release` as a nice looking table
+Implements `uname -a` and `cat /etc/os-release` and `lscpu` as a nice looking list
 
 - `Write-EveryOtherOdd`  
 Calculates "every other odd" in a range of numbers
