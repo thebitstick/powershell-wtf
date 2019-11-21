@@ -23,5 +23,6 @@ Set-Alias Emulate-Console wineconsole
 Set-Alias Compile-C++ g++
 Set-Alias Compile-Assembly masm
 Set-Alias Compile-Rust rustc
-Set-Alias ls dir # why use GNU ls when Get-ChildItem/dir exists
+Set-Alias ls Get-ChildItem # why use GNU ls when Get-ChildItem exists
 # (although I prefer exa on FiSH shell)
+Set-Alias touch New-Item
