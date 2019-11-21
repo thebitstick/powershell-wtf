@@ -13,7 +13,7 @@ Set-Theme Impact
 # Added for functionality similar to history searching used in FiSH Shell
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadlineKeyHandler -Key Tab -Function Complete
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 Set-Alias Edit-Item vim # lol
