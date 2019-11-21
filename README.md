@@ -51,4 +51,9 @@ Calculates "every other odd" in a range of numbers
 - Edit-Item: `vim`  
 - Connect-Shell: `ssh`  
 - Open-Item: `xdg-open`  
-- ls: dir: `Get-ChildItem`  
+- Emulate-Console: `wineconsole`
+- Compile-C++: `g++`
+- Compile-Assembly: `masm`
+- Compile-Rust: `rustc`
+- ls: `Get-ChildItem`  
+- touch: `New-Item`
