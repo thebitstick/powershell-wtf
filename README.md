@@ -46,14 +46,18 @@ Implements `uname -a` and `cat /etc/os-release` and `lscpu` as a nice looking li
 Calculates "every other odd" in a range of numbers
 
 
+#### Function in masm.psm1
+
+- `Build-Assembly`
+Takes a MASM file and assembles it
+
+
 ### Aliases
 
 - Edit-Item: `vim`  
 - Connect-Shell: `ssh`  
 - Open-Item: `xdg-open`  
-- Emulate-Console: `wineconsole`
-- Compile-C++: `g++`
-- Compile-Assembly: `masm`
-- Compile-Rust: `rustc`
+- Build-C++: `g++`
+- Build-Rust: `rustc`
 - ls: `Get-ChildItem`  
 - touch: `New-Item`
