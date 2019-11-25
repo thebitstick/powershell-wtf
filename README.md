@@ -46,7 +46,7 @@ Implements `uname -a` and `cat /etc/os-release` and `lscpu` as a nice looking li
 Calculates "every other odd" in a range of numbers
 
 
-#### Function in masm.psm1
+### Function in masm.psm1
 
 - `Build-Assembly`
 Takes a MASM file and assembles it
