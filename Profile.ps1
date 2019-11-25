@@ -16,7 +16,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
-Set-Alias Edit-Item vim # lol
+Set-Alias Edit-Item nvim 
 Set-Alias Connect-Shell ssh
 Set-Alias Open-Item xdg-open
 Set-Alias Emulate-Console wineconsole
