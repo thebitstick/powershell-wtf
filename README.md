@@ -52,9 +52,16 @@ Calculates "every other odd" in a range of numbers
 Takes a MASM file and assembles it
 
 
+### Functions in Item.psm1
+
+- `Edit-Item`
+Wrapper for $EDITOR (currently nvim)
+
+- `Edit-PrivilegedItem`
+Calls $EDITOR with `Invoke-Sudo`
+
 ### Aliases
 
-- Edit-Item: `vim`  
 - Connect-Shell: `ssh`  
 - Open-Item: `xdg-open`  
 - Build-C++: `g++`

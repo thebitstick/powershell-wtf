@@ -1,12 +1,15 @@
+$EDITOR = "/usr/bin/nvim"
 $env:PATH += ":$env:HOME/.local/bin:$env:HOME/.cargo/bin" # Enables Python/Rust user-installed binaries (like sharexin or toot)
 $SYSTEM_MODULE = "$env:HOME/Git/powershell-systemctl/Systemctl.psm1"
 $MASM_MODULE = "$env:HOME/Git/powershell-wtf/masm.psm1"
+$ITEM_MODULE = "$env:HOME/Git/powershell-wtf/Item.psm1"
 $WTF_MODULE = "$env:HOME/Git/powershell-wtf/WTF.psm1"
 $WTF_PATH = "$env:HOME/Git/powershell-wtf/"
 
 # Oh-My-Posh theming
 Import-Module $SYSTEM_MODULE
 Import-Module $MASM_MODULE
+Import-Module $ITEM_MODULE
 Import-Module $WTF_MODULE
 Import-Module posh-git
 Import-Module oh-my-posh
@@ -18,7 +21,6 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
-Set-Alias Edit-Item nvim 
 Set-Alias Connect-Shell ssh
 Set-Alias Open-Item xdg-open
 Set-Alias Build-C++ g++
