@@ -15,7 +15,7 @@ function Build-Assembly {
   #Requires -Version 6.0
 
   [CmdletBinding()]
-  param(
+  param (
     [Parameter(Mandatory = $true)]
     [string]$Path
   )
@@ -36,5 +36,5 @@ function Build-Assembly {
 
   wine ml -nologo -c -coff -Zi "$Path"
 
-  wine link /NOLOGO /SUBSYSTEM:CONSOLE /ENTRY:main /LIBPATH:'C:\Irvine' irvine32.lib kernel32.lib user32.lib "" $FileName".obj"
+  wine link /NOLOGO /SUBSYSTEM:CONSOLE /ENTRY:main /LIBPATH:'C:\Irvine' irvine32.lib kernel32.lib user32.lib '"$FileName".obj'
 }

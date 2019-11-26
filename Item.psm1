@@ -16,7 +16,7 @@ function Edit-Item {
   #Requires -Version 6.0
 
   [CmdletBinding()]
-  param(
+  param (
     [Parameter(Mandatory = $true,Position = 1)]
     [string]$Item
   )
@@ -41,7 +41,7 @@ function Edit-PrivilegedItem {
   #Requires -Version 6.0  
 
   [CmdletBinding()]
-  param(
+  param (
     [Parameter(Mandatory = $true,Position = 1)]
     [string]$Item
   )
