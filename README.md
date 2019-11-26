@@ -18,12 +18,6 @@ I also use [Tyler/LeonhardtPSNotifySend](https://github.com/TylerLeonhardt/PSNot
 
 ### Functions in WTF.psm1
 
-- `Edit-Profile`  
-`Edit-Item $PROFILE`
-
-- `Edit-WTF`  
-`Edit-Item $WTF_MODULE`
-
 - `Update-Computer`  
 `flatpak update; sudo dnf upgrade --refresh`
 
@@ -48,20 +42,42 @@ Calculates "every other odd" in a range of numbers
 
 ### Function in masm.psm1
 
-- `Build-Assembly`
+- `Build-Assembly`  
 Takes a MASM file and assembles it
 
 
 ### Functions in Item.psm1
 
-- `Edit-Item`
+- `Edit-Item`  
 Wrapper for $EDITOR (currently nvim)
 
-- `Edit-PrivilegedItem`
+- `Edit-PrivilegedItem`  
 Calls $EDITOR with `Invoke-Sudo`
 
-- `Invoke-PrivilegedItem`
-Wrapper for xdg-open
+- `New-PrivilegedItem`  
+Calls `New-Item` with `Invoke-Sudo`
+
+- `Remove-PrivilegedItem`  
+Calls `Remove-Item` with `Invoke-Sudo`
+
+- `Clear-PrivilegedItem`  
+Calls `Clear-Item` with `Invoke-Sudo`
+
+- `Copy-PrivilegedItem`  
+Calls `Copy-Item` with `Invoke-Sudo`
+
+- `Get-PrivilegedItem`  
+Calls `Get-Item` with `Invoke-Sudo`
+
+- `Move-PrivilegedItem`  
+Calls `Move-Item` with `Invoke-Sudo`
+
+- `Set-PrivilegedItem`  
+Calls `Set-Item` with `Invoke-Sudo`
+
+- `Invoke-PrivilegedItem`  
+Calls `Invoke-Item` with `Invoke-Sudo`
+
 
 ### Aliases
 
