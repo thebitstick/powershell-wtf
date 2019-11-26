@@ -20,32 +20,6 @@ function .. {
   Set-Location ..
 }
 
-function Edit-Profile {
-<#
-	.SYNOPSIS
-	    Opens an editor for editing the default $PROFILE.
-	.DESCRIPTION
-	  Uses Edit-Item to edit the $PROFILE variable.
-#>
-
-  #Requires -Version 6.0
-
-  Edit-Item $PROFILE
-}
-
-function Edit-WTF {
-<#
-	.SYNOPSIS
-	    Opens an editor for editing the WTF Module.
-	.DESCRIPTION
-	    Uses Edit-Item to edit the $WTF_MODULE variable
-#>
-
-  #Requires -Version 6.0
-
-  Edit-Item $WTF_MODULE
-}
-
 function Update-Computer {
 <#
 	.SYNOPSIS

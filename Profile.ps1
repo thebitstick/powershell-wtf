@@ -12,7 +12,6 @@ $ITEM_MODULE = "$env:HOME/Git/powershell-wtf/Item.psm1"
 $WTF_MODULE = "$env:HOME/Git/powershell-wtf/WTF.psm1"
 $WTF_PATH = "$env:HOME/Git/powershell-wtf/"
 
-# Oh-My-Posh theming
 Import-Module $SYSTEM_MODULE
 Import-Module $MASM_MODULE
 Import-Module $ITEM_MODULE
@@ -31,5 +30,4 @@ Set-Alias Connect-Shell ssh
 Set-Alias Build-C++ g++
 Set-Alias Build-Rust rustc
 Set-Alias ls Get-ChildItem # why use GNU ls when Get-ChildItem exists
-# (although I prefer exa on FiSH shell)
 Set-Alias touch New-Item
