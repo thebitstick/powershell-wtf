@@ -1,4 +1,10 @@
-$EDITOR = "/usr/bin/nvim"
+if ($env:EDITOR) {
+  $EDITOR = "$env:EDITOR"
+} else {
+  $EDITOR = "/usr/bin/nvim"
+}
+
+New-PSDrive -Name C -PSProvider FileSystem -Root / > /dev/null
 $env:PATH += ":$env:HOME/.local/bin:$env:HOME/.cargo/bin" # Enables Python/Rust user-installed binaries (like sharexin or toot)
 $SYSTEM_MODULE = "$env:HOME/Git/powershell-systemctl/Systemctl.psm1"
 $MASM_MODULE = "$env:HOME/Git/powershell-wtf/masm.psm1"
@@ -22,7 +28,6 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 Set-Alias Connect-Shell ssh
-Set-Alias Open-Item xdg-open
 Set-Alias Build-C++ g++
 Set-Alias Build-Rust rustc
 Set-Alias ls Get-ChildItem # why use GNU ls when Get-ChildItem exists

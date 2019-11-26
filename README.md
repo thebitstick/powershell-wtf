@@ -60,10 +60,12 @@ Wrapper for $EDITOR (currently nvim)
 - `Edit-PrivilegedItem`
 Calls $EDITOR with `Invoke-Sudo`
 
+- `Invoke-PrivilegedItem`
+Wrapper for xdg-open
+
 ### Aliases
 
 - Connect-Shell: `ssh`  
-- Open-Item: `xdg-open`  
 - Build-C++: `g++`
 - Build-Rust: `rustc`
 - ls: `Get-ChildItem`  
