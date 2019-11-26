@@ -16,8 +16,8 @@ function Edit-Item {
   #Requires -Version 6.0
 
   [CmdletBinding()]
-  param (
-    [Parameter(Mandatory = $true, Position = 1)]
+  param(
+    [Parameter(Mandatory = $true,Position = 1)]
     [string]$Item
   )
 
@@ -36,16 +36,16 @@ function Edit-PrivilegedItem {
             Items to Edit.  
         .EXAMPLE  
             Edit-PrivilegedItem /etc/passwd  
-#>  
-  
+#>
+
   #Requires -Version 6.0  
-  
-  [CmdletBinding()]  
-  param (  
-    [Parameter(Mandatory = $true,Position = 1)]  
-    [string]$Item  
-  )  
-  
+
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory = $true,Position = 1)]
+    [string]$Item
+  )
+
   Invoke-Sudo "$EDITOR" $Item
 }
 

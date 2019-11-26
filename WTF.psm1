@@ -9,7 +9,7 @@ function ~ {
   Set-Location $env:HOME
 }
 
-function .. {
+function ..{
 <#
 	.SYNOPSIS
 	    Set's the location to a directory up a level
@@ -252,9 +252,9 @@ function Get-ComputerInfo {
   $Os.SupportURL = $OsRelease.Support_URL
   $Os.BugReportURL = $OsRelease.Bug_Report_URL
 
-  $Comp 
+  $Comp
   $Os
-  $Cpu 
+  $Cpu
 }
 
 function Write-EveryOtherOdd {

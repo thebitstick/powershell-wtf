@@ -22,9 +22,9 @@ Import-Module oh-my-posh
 Set-Theme Impact
 
 # Added for functionality similar to history searching used in FiSH Shell
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 
 Set-Alias Connect-Shell ssh
