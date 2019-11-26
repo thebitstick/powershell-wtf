@@ -31,7 +31,7 @@ function Update-Computer {
   #Requires -Version 6.0
 
   flatpak update
-  sudo dnf upgrade --refresh
+  Invoke-Sudo dnf upgrade --refresh
 }
 
 function Get-DiskUsage {
@@ -229,6 +229,7 @@ function Get-ComputerInfo {
   $Comp
   $Os
   $Cpu
+  Get-Uptime
 }
 
 function Write-EveryOtherOdd {
