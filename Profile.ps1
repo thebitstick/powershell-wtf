@@ -29,5 +29,9 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 Set-Alias Connect-Shell ssh
 Set-Alias Build-C++ g++
 Set-Alias Build-Rust rustc
-Set-Alias ls Get-ChildItem # why use GNU ls when Get-ChildItem exists
+Set-Alias ls Get-ChildItem
 Set-Alias touch New-Item
+Set-Alias rm Remove-Item
+Set-Alias clear Clear-Host
+Set-Alias cat Get-Content
+Set-Alias cp Copy-Item
