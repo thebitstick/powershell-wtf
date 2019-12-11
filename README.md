@@ -30,9 +30,6 @@ Implements `grubby --default-kernel` as a nice looking table
 - `Invoke-Sudo`  
 `sudo pwsh-preview "% $args"`
 
-- `Edit-PrivilegedItem`  
-`Invoke-Sudo vim [file]`
-
 - `Get-ComputerInfo`  
 Implements `uname -a`, `cat /etc/os-release`, `lscpu`, and `Get-Uptime` as a nice looking list
 
