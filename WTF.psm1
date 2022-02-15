@@ -30,8 +30,10 @@ function Update-Computer {
 
   #Requires -Version 6.0
 
-  flatpak update
-  Invoke-Sudo dnf upgrade --refresh
+  Invoke-Sudo port selfupdate
+  Invoke-Sudo port upgrade outdated
+  brew update
+  brew upgrade 
 }
 
 function Get-DiskUsage {
@@ -56,7 +58,7 @@ function Get-DiskUsage {
     [string]$Path
   )
 
-  $Disc = $(df $Path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv)
+  $Disc = $(gdf $Path --output=source,fstype,size,used,avail,pcent,file,target --human-readable | tr -s ' ' ',' | ConvertFrom-Csv)
 
   $Table = New-Object -TypeName System.Data.DataTable
 
@@ -93,33 +95,6 @@ function Get-DiskUsage {
   }
 
   $Table | Format-Table -AutoSize
-}
-
-function Get-DefaultKernel {
-<#
-	.SYNOPSIS
-	    Formats the output of querying the default kernel under GRUB as a table.
-	.DESCRIPTION
-	    Takes the output of grubby after querying the default kernel under GRUB, then outputs.
-	.OUTPUTS
-	    Value of default kernel under GRUB as an object containing it's filename and location.
-#>
-
-  #Requires -Version 6.0
-
-  [CmdletBinding()]
-  class Kernel {
-    [string]$Name
-    [string]$Location
-  }
-
-  $Kern = [Kernel]::new()
-  $Output = (Invoke-Sudo grubby --default-kernel)
-
-  $Kern.Name = Split-Path -Path $Output -Leaf
-  $Kern.Location = $Output
-
-  $Kern | Format-Table -AutoSize
 }
 
 function Invoke-Sudo {
@@ -196,20 +171,24 @@ function Get-ComputerInfo {
 
   $Comp = [ComputerInfo]::new()
   $Os = [OSInfo]::new()
+
+  # Equivalent needed on macOS (perhaps [sysctl -a | grep cpu | grep hw])
   $Cpu = (lscpu | sed -n '/./s/ *\(\( *[^:[:blank:]]\)*\)[^:]*\(=*\)/"\1"\3/gp')
+
   $Cpu = (($Cpu | grep -v Flags | grep -v Vulnerability) -replace ':','=: ')
   $Cpu = $Cpu | ConvertFrom-StringData | Format-Table -AutoSize -HideTableHeaders
-
+  
+  # Equivalent needed on macOS
   $OsRelease = ((Get-Content /etc/os-release) -replace '"','' | ConvertFrom-StringData)
 
-  $Comp.Kernel = (uname --kernel-name)
-  $Comp.Hostname = (uname --nodename)
-  $Comp.KernelRelease = (uname --kernel-release)
-  $Comp.KernelVersion = (uname --kernel-version)
-  $Comp.Hardware = (uname --machine)
-  $Comp.Processor = (uname --processor)
-  $Comp.Platform = (uname --hardware-platform)
-  $Comp.OperatingSystem = (uname --operating-system)
+  $Comp.Kernel = (guname --kernel-name)
+  $Comp.Hostname = (guname --nodename)
+  $Comp.KernelRelease = (guname --kernel-release)
+  $Comp.KernelVersion = (guname --kernel-version)
+  $Comp.Hardware = (guname --machine)
+  $Comp.Processor = (guname --processor)
+  $Comp.Platform = (guname --hardware-platform)
+  $Comp.OperatingSystem = (guname --operating-system)
 
   $Os.Name = $OsRelease.Name
   $Os.Version = $OsRelease.Version

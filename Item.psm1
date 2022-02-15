@@ -24,6 +24,44 @@ function Edit-Item {
   & $EDITOR "$Item"
 }
 
+function Edit-ItemVisually {
+<#
+	.SYNOPSIS
+	    Opens an item via TextMate for editing.
+	.DESCRIPTION
+	    Takes the input and launches TextMate for editing the item via the macOS/NS open command.
+#>
+
+  #Requires -Version 6.0
+  
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromRemainingArguments = $true,Mandatory = $true)]
+    [string[]]$args = $args
+  )
+
+  open -a /Applications/Homebrew/TextMate.app $args
+}
+
+function Open-Item {
+<#
+	.SYNOPSIS
+	    Opens an item via the default application defined by macOS.
+	.DESCRIPTION
+	    Takes the input and launches the default application as defined by the macOS/NS open command.
+#>
+
+  #Requires -Version 6.0
+  
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromRemainingArguments = $true,Mandatory = $true)]
+    [string[]]$args = $args
+  )
+
+  open $args
+}
+
 function Edit-PrivilegedItem {
 <#
         .SYNOPSIS
