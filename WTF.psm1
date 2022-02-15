@@ -36,6 +36,29 @@ function Update-Computer {
   brew upgrade 
 }
 
+function Disconnect-Drive {
+<#
+	.SYNOPSIS
+	    Wrapper for diskutil
+	.DESCRIPTION
+	    Takes mandatory parameters provided and Invokes the diskutil command.
+	.INPUTS
+	    Mandatory parameters as commands.
+	.EXAMPLE
+	    Disconnect-Drive /Volumes/SanDisk
+#>
+
+  #Requires -Version 6.0
+
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromRemainingArguments = $true,Mandatory = $true)]
+    [string[]]$args = $args
+  )
+
+  diskutil unmount $args
+}
+
 function Get-DiskUsage {
 <#
 	.SYNOPSIS
@@ -95,6 +118,30 @@ function Get-DiskUsage {
   }
 
   $Table | Format-Table -AutoSize
+}
+
+function Get-Git {
+<#
+	.SYNOPSIS
+	    Wrapper for git clone
+	.DESCRIPTION
+	    Takes mandatory parameters provided and Invokes the git command.
+	.INPUTS
+	    Mandatory parameters as commands.
+	.EXAMPLE
+	    Get-Git https://github.com/thebitstick/powershell-wtf
+#>
+
+  #Requires -Version 6.0
+
+  [CmdletBinding()]
+  param(
+    [Parameter(ValueFromRemainingArguments = $true,Mandatory = $true)]
+    [string[]]$args = $args
+  )
+
+  Set-Location $env:HOME/Developer/Git
+  git clone $args
 }
 
 function Invoke-Sudo {
